@@ -389,15 +389,15 @@ vector<Product> loadProducts() {
     return products;
 }
 
-// // Save products to file
-// void saveProducts(const vector<Product>& products) {
-//     ofstream file(filename);
-//     if (file.is_open()) {
-//         for (const auto& p : products) {
-//             file << p.id << "\n" << p.name << "\n" << p.category << "\n" << p.price << "\n" << p.quantity << "\n";
-//         }
-//         file.close();
-//     } else {
-//         cout << "Error: Could not save products.\n";
-//     }
-// }
+// Save products to file
+void saveProducts(const vector<Product>& products) {
+    ofstream file(filename);
+    if (file.is_open()) {
+        for (const auto& p : products) {
+            file << p.id << "\n" << p.name << "\n" << p.category << "\n" << p.price << "\n" << p.quantity << "\n";
+        }
+        file.close();
+    } else {
+        cout << "Error: Could not save products.\n";
+    }
+}
