@@ -370,34 +370,34 @@ void importFromCSV() {
     }
 }
 
-// // Load products from file
-// vector<Product> loadProducts() {
-//     vector<Product> products;
-//     ifstream file(filename);
-//     if (file.is_open()) {
-//         Product p;
-//         while (file >> p.id) {
-//             file.ignore();
-//             getline(file, p.name);
-//             getline(file, p.category);
-//             file >> p.price >> p.quantity;
-//             file.ignore();
-//             products.push_back(p);
-//         }
-//         file.close();
-//     }
-//     return products;
-// }
-
-// Save products to file
-void saveProducts(const vector<Product>& products) {
-    ofstream file(filename);
+// Load products from file
+vector<Product> loadProducts() {
+    vector<Product> products;
+    ifstream file(filename);
     if (file.is_open()) {
-        for (const auto& p : products) {
-            file << p.id << "\n" << p.name << "\n" << p.category << "\n" << p.price << "\n" << p.quantity << "\n";
+        Product p;
+        while (file >> p.id) {
+            file.ignore();
+            getline(file, p.name);
+            getline(file, p.category);
+            file >> p.price >> p.quantity;
+            file.ignore();
+            products.push_back(p);
         }
         file.close();
-    } else {
-        cout << "Error: Could not save products.\n";
     }
+    return products;
 }
+
+// // Save products to file
+// void saveProducts(const vector<Product>& products) {
+//     ofstream file(filename);
+//     if (file.is_open()) {
+//         for (const auto& p : products) {
+//             file << p.id << "\n" << p.name << "\n" << p.category << "\n" << p.price << "\n" << p.quantity << "\n";
+//         }
+//         file.close();
+//     } else {
+//         cout << "Error: Could not save products.\n";
+//     }
+// }
